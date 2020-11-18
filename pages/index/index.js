@@ -5,9 +5,29 @@ const app = getApp()
 Page({
   data: {
     motto: 'Hello World',
+    name:'77',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
+  //点击登录
+  btnlogin:function(q){
+    // console.log('77');
+    wx.login({
+      success(res){
+        if(res.code){
+          //发起网络请求
+          wx.request({
+            url:'http://blog.2004.com/wxlogin',
+            data:{
+              code:res.code
+            }
+          })
+        }else{
+          console.log('登录失败' + res.errMsg)
+        }
+      }
+    })
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,6 +36,23 @@ Page({
     })
   },
   onLoad: function () {
+    let _this = (this);
+    wx.request({
+      url: 'http://blog.2004.com/goods', //仅为示例，并非真实的接口地址
+      data: {
+        x: 'xxx',
+        y: 'yyy'
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        _this.setData({
+          qwe:res.data.name,
+          ert:res.data.age
+        })
+      }
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -51,4 +88,5 @@ Page({
       hasUserInfo: true
     })
   }
+  
 })
