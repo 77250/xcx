@@ -7,10 +7,10 @@ Page({
   data: {
     movies:[  
 
-      {url:'/素材/IMG_20200518_174334.png'} ,  
-      {url:'/素材/sadj1.jpg'} ,  
-      {url:'/素材/552b1999aa4d5a2e75352fa2f6e93d51.jpg'} ,  
-      {url:'/素材/005100-1592412660f973.jpg'}   
+      {url:'/图片/1.jpg'} ,  
+      {url:'/图片/2.jpg'} ,  
+      {url:'/图片/4.jpg'} ,  
+      {url:'/图片/5.jpg'}   
   
       ]  
   },
