@@ -1,44 +1,18 @@
-// home/home.js
+// pages/login/login.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    movies:[  
 
-      {url:'/图片/3.jpg'} ,  
-      {url:'/图片/6.jpg'} ,  
-      {url:'/图片/4.jpg'} ,  
-      {url:'/图片/5.jpg'}   
-  
-      ]  
-  },
-  //跳转详情页
-  getdatalist:function(s){
-    // let _this=(this);
-    // console.log(s);
-    var id=s.currentTarget.id
-    //跳转页面
-    wx.navigateTo({
-      url: '/pages/details/details?goods_id='+id
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      let tahat = this
-      wx.request({
-        url:'http://blog.2004.com/wxgoods',
-        success:function(res){
-          console.log(res.data);
-          tahat.setData({
-            goods:res.data
-          })
-        }
-      })
+
   },
 
   /**
@@ -82,6 +56,32 @@ Page({
   onReachBottom: function () {
 
   },
+  login:function(u)
+{
+  // console.log(1111)
+  //获取用户信息
+  let userinfo = u.detail.userInfo;
+  wx.login({
+    success (res) {
+      if (res.code) {
+        //发起网络请求
+        wx.request({
+          url: 'http://blog.2004.com/wxlogin',
+          data: {
+            code:res.code,
+            u:userinfo
+          },
+          success: function(res){
+              //保存token
+              wx.setStorageSync('toekn',res.data.data.token)
+          }
+        })
+      } else {
+        console.log('登录失败！' + res.errMsg)
+      }
+    }
+  })
+},
 
   /**
    * 用户点击右上角分享

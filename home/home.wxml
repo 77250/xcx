@@ -6,9 +6,37 @@
   </swiper-item>  
 </block>  
 </swiper>  
-<view wx:for="{{goods}}" wx:key="{{unque}}">
-  商品名称{{goods[index].goods_name}}
-  商品介绍{{goods[index].goods_price}}
-  商品价格{{goods[index].goods_number}}
 
-</view>                  
+<view class='classify_list'>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+     <view class="classify">分类1</view>
+   </view>
+
+
+<view class='list'>
+  <block wx:for='{{goods}}' wx:key='list' wx:for-item="item">
+  <view class="list_item" bindtap="getdatalist" id="{{goods[index].goods_id}}">
+      <!-- <navigator url='pages/details?id={{item.goods_id}}'></navigator> -->
+      <view class='img'>
+        <image src="{{imghref}}{{goods[index].goods_img}}"  mode="scaleToFill"/>
+      </view>
+      <view class='info'>
+        
+        <view class='title'>名称：{{goods[index].goods_name}}</view>
+        <view class='price'>￥：{{goods[index].shop_price}}</view>
+        <view class='num'>销量：{{goods[index].goods_number}}</view>
+      </view>
+       <!-- </navigator> -->
+      <view class='clear'></view>
+  </view>
+  </block>
+</view>

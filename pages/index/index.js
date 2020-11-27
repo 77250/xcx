@@ -10,6 +10,13 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+    //页面上拉触底事件的处理函数
+    onReachBottom:function(){
+      console.log(111)
+      this.data.page++;
+      this.grtGoodsList();
+    },
+
   //点击登录
   btnlogin:function(q){
     // console.log('77');
@@ -21,6 +28,9 @@ Page({
             url:'http://blog.2004.com/wxlogin',
             data:{
               code:res.code
+            },
+            success:function(res){
+              console.log("获取token" + res.data.data.token)
             }
           })
         }else{

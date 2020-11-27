@@ -3,7 +3,11 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/goods/goods",
-    "home/home"
+    "home/home",
+    "pages/details/details",
+    "pages/login/login",
+    "pages/cartlist/cartlist"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,7 +34,7 @@
       {
         "iconPath": "/素材/shopcart.png",
         "selectedIconPath": "/素材/shopcart-select.png",
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/cartlist/cartlist",
         "text": "购物车"
       },
       {
@@ -38,6 +42,12 @@
         "selectedIconPath": "/素材/my-select.png",
         "pagePath": "pages/index/index",
         "text": "我的"
+      },
+      {
+        "iconPath": "/素材/my.png",
+        "selectedIconPath": "/素材/my-select.png",
+        "pagePath": "pages/login/login",
+        "text": "你的"
       }
     ]
   },
